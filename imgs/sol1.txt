@@ -1,0 +1,4 @@
+elif api_path == '/notify':
+    claim_id = get_named_property(event, "claimId")
+    pending_documents = get_named_property(event, "pendingDocuments")
+    body = send_reminder(claim_id, pending_documents)

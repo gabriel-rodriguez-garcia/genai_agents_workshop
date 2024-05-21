@@ -71,60 +71,12 @@
                       "items": {
                         "type": "string"
                       },
-                      "example": ["doc1", "doc2", "doc3"],
+                      "example": [
+                        "doc1",
+                        "doc2",
+                        "doc3"
+                      ],
                       "description": "The list of pending documents for the claim."
-                    }
-                  }
-                }
-              }
-            }
-          }
-        }
-      }
-    },
-    "/open-items/{claimId}/detail": {
-      "get": {
-        "summary": "Gets all details about a specific claim",
-        "description": "Gets all details about a specific claim given a claim id.",
-        "operationId": "getClaimDetail",
-        "parameters": [
-          {
-            "name": "claimId",
-            "in": "path",
-            "description": "Unique ID of the open insurance claim",
-            "required": true,
-            "schema": {
-              "type": "string"
-            }
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "Details of the claim",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "type": "object",
-                  "properties": {
-                    "claimId": {
-                      "type": "string",
-                      "description": "Unique identifier for the claim."
-                    },
-                    "createdDate": {
-                      "type": "string",
-                      "description": "Date the claim was created."
-                    },
-                    "lastActivityDate": {
-                      "type": "string",
-                      "description": "Date of last activity."
-                    },
-                    "status": {
-                      "type": "string",
-                      "description": "Claim status. One of: Open, Completed."
-                    },
-                    "policyType": {
-                      "type": "string",
-                      "description": "Policy type. One of: Vehicle, Life, Disability."
                     }
                   }
                 }
@@ -168,7 +120,6 @@
                     "description": "List of object containing the pending documents id as key and their requirements as value"
                   }
                 },
-
                 "required": [
                   "claimId",
                   "pendingDocuments"

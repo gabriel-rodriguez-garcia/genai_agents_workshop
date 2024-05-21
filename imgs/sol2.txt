@@ -1,0 +1,8 @@
+response = bedrock_agent_client.create_agent(
+    agentName=agent_name,
+    agentResourceRoleArn=agent_role['Role']['Arn'],
+    description="Agent for handling insurance claims.",
+    idleSessionTTLInSeconds=1800,
+    foundationModel="anthropic.claude-v2:1",
+    instruction=agent_instruction,
+)

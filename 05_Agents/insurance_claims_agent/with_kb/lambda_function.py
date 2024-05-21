@@ -117,18 +117,28 @@ def send_reminder(claim_id, pending_documents):
 def lambda_handler(event, context):
     action = event['actionGroup']
     api_path = event['apiPath']
+    
     if api_path == '/open-items':
         body = open_claims()
+    
     elif api_path == '/open-items/{claimId}/outstanding-paperwork':
         claim_id = get_named_parameter(event, "claimId")
         body = outstanding_paperwork(claim_id)
+    
     elif api_path == '/open-items/{claimId}/detail':
         claim_id = get_named_parameter(event, "claimId")
         body = claim_detail(claim_id)
+    
+    
+    # Task 2: Add the /notify api path
+    # just use the send_reminder function and pass the correct inputs 
+    
     elif api_path == '/notify':
-        claim_id = get_named_property(event, "claimId")
-        pending_documents = get_named_property(event, "pendingDocuments")
-        body = send_reminder(claim_id, pending_documents)
+        
+        ## Add your code here below
+        # ...
+        # body = ...
+        
     else:
         body = {"{}::{} is not a valid api, try another one.".format(action, api_path)}
 
